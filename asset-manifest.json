@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/zigmund-test/static/css/main.c29d52e2.chunk.css",
-    "main.js": "/zigmund-test/static/js/main.31abe647.chunk.js",
-    "main.js.map": "/zigmund-test/static/js/main.31abe647.chunk.js.map",
+    "main.css": "/zigmund-test/static/css/main.25df66d6.chunk.css",
+    "main.js": "/zigmund-test/static/js/main.922395bc.chunk.js",
+    "main.js.map": "/zigmund-test/static/js/main.922395bc.chunk.js.map",
     "runtime-main.js": "/zigmund-test/static/js/runtime-main.c3e8cbb8.js",
     "runtime-main.js.map": "/zigmund-test/static/js/runtime-main.c3e8cbb8.js.map",
     "static/js/2.6112e835.chunk.js": "/zigmund-test/static/js/2.6112e835.chunk.js",
@@ -10,9 +10,8 @@
     "static/js/3.913a6dfc.chunk.js": "/zigmund-test/static/js/3.913a6dfc.chunk.js",
     "static/js/3.913a6dfc.chunk.js.map": "/zigmund-test/static/js/3.913a6dfc.chunk.js.map",
     "index.html": "/zigmund-test/index.html",
-    "static/css/main.c29d52e2.chunk.css.map": "/zigmund-test/static/css/main.c29d52e2.chunk.css.map",
+    "static/css/main.25df66d6.chunk.css.map": "/zigmund-test/static/css/main.25df66d6.chunk.css.map",
     "static/js/2.6112e835.chunk.js.LICENSE.txt": "/zigmund-test/static/js/2.6112e835.chunk.js.LICENSE.txt",
-    "static/media/404text.1062f5e4.png": "/zigmund-test/static/media/404text.1062f5e4.png",
     "static/media/git_fork_icon.248856b9.svg": "/zigmund-test/static/media/git_fork_icon.248856b9.svg",
     "static/media/github-logo.432be498.svg": "/zigmund-test/static/media/github-logo.432be498.svg",
     "static/media/loading.de76ced5.svg": "/zigmund-test/static/media/loading.de76ced5.svg",
@@ -23,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.c3e8cbb8.js",
     "static/js/2.6112e835.chunk.js",
-    "static/css/main.c29d52e2.chunk.css",
-    "static/js/main.31abe647.chunk.js"
+    "static/css/main.25df66d6.chunk.css",
+    "static/js/main.922395bc.chunk.js"
   ]
 }
