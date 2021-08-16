@@ -7,35 +7,13 @@
 }
 
 .repoCard:hover {
-    border: 1px solid #095bc9;
+    border: 1px solid #7cb0f6;
 }
 
 .urlPoint span {
     color: #1f6feb;
 }
 
-.gitDataItems {
-    font-weight: bold;
-}
-
-.repoCard .cardItem span {
-    font-weight: bold;
-    margin-left: 5px;
-
-}
-
-.cardItem {
-    display: flex;
-    font-size: 14px;
-    margin-right: 30px;
-    align-items: center;
-
-}
-
-.gitLogos {
-    width: 20px;
-    margin-right: 10px;
-}
 .gitDataItems {
     display: flex;
 }

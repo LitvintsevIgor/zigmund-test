@@ -28,7 +28,11 @@ button {
     background-color: #1f6feb;
     border-radius: 0 6px 6px 0;
     outline: none;
-border: none;
+    border: none;
     font-weight: bold;
     cursor: pointer;
+}
+
+.prevButton {
+    border-radius: 6px 0 0 6px;
 }

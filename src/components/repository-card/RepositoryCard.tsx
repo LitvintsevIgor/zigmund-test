@@ -3,6 +3,7 @@ import style from "./RepositoryCard.module.css";
 import forkLogo from "../../common/images/git_fork_icon.svg";
 import watchersLogo from "../../common/images/watchers.svg";
 import starLogo from "../../common/images/star.svg";
+import {RepositoryCardItem} from "../repositoty-card-Item/RepositotyCardItem";
 
 export type RepositoryCardPropsType = {
     name: string
@@ -28,21 +29,9 @@ export const RepositoryCard:React.FC<RepositoryCardPropsType> = ({
                 <span>URL:</span> <a href={url}>{url}</a>
             </p>
             <div className={style.gitDataItems}>
-                <div className={style.cardItem}>
-                    <img className={style.gitLogos} src={forkLogo} alt=""/>
-                    {forksCount} <span>forks</span>
-                </div>
-                <div className={style.cardItem}>
-                    <img className={style.gitLogos} src={watchersLogo} alt=""/>
-                    <div>
-                        {watchers}<span>watchers</span>
-                    </div>
-
-                </div>
-                <div className={style.cardItem}>
-                    <img className={style.gitLogos} src={starLogo} alt=""/>
-                    <div>{stargazersCount}<span>stargazers</span></div>
-                </div>
+                <RepositoryCardItem item={"forks"} count={forksCount} logo={forkLogo}/>
+                <RepositoryCardItem item={"watchers"} count={watchers} logo={watchersLogo}/>
+                <RepositoryCardItem item={"stargazers"} count={stargazersCount} logo={starLogo}/>
             </div>
         </div>
     )

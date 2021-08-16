@@ -1,0 +1,30 @@
+.notFound {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 430px;
+    width: 530px;
+    margin: 0 auto;
+}
+
+.notFound p {
+    width: 300px;
+    font-size: 20px;
+}
+
+.sorryWord {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.searchCompany {
+    display: inline-block;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #e34c26;
+    font-weight: 900;
+    transform: translateY(6px);
+}
+

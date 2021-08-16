@@ -1,0 +1,17 @@
+.cardItem {
+    display: flex;
+    font-size: 14px;
+    margin-right: 30px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.gitLogos {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.cardItem span {
+    font-weight: bold;
+    margin-left: 5px;
+}

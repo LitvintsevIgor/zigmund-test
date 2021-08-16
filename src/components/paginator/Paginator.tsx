@@ -2,6 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {AllAppStateType} from "../../redux/store";
 import style from "./Paginator.module.css";
+import {getSequentialNumber} from "../../common/helpers/helpers";
 
 type PaginatorPropsType = {
     getNewRepositoriesPage: (currentPage: number) => void;
@@ -21,21 +22,19 @@ export const Paginator: React.FC<PaginatorPropsType> = ({getNewRepositoriesPage,
     const totalRepositoriesCount = useSelector<AllAppStateType, number>(state => state.data.totalRepositoriesCount)
     const portionSize = useSelector<AllAppStateType, number>(state => state.data.portionSize)
 
-    let paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
-    let paginatorPages = [];
-    for (let i = 1; i <= paginatorPagesCount; i++) {
-        paginatorPages.push(i)
-    }
+    const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
+    const paginatorPages = getSequentialNumber(paginatorPagesCount)
     const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSize)
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
     const rightPortionPageNumber = portionNumber * portionSize
+
 
     const selectedPageStyle = `${style.selectedPage} + ${style.page}`
 
     return (
         <div className={style.paginator}>
 
-            {portionNumber > 1 && <button style={{borderRadius: "6px 0 0 6px"}} onClick={() => setPortionNumber((prevState) => prevState - 1)}>PREV</button>}
+            {portionNumber > 1 && <button className={style.prevButton} onClick={() => setPortionNumber((prevState) => prevState - 1)}>PREV</button>}
 
             {paginatorPages
                 .filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)

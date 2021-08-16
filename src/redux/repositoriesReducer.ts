@@ -1,7 +1,7 @@
 const initialState: InitialStateType = {
     repositories: [] ,
     totalRepositoriesCount: 0,
-    repositoriesPerPage: 3,
+    repositoriesPerPage: 10,
     portionSize: 10,
     currentPage: 1,
     currentOrgName: "",
@@ -13,7 +13,6 @@ const initialState: InitialStateType = {
 }
 
 export const repositoriesReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
-
     switch (action.type) {
         case "GET-REPOSITORIES":
             return {
@@ -65,7 +64,8 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
     return state
 }
 
-// Action creators
+
+// ACTION CREATORS
 export const setRepositoriesAC = (repositories: RepositoriesType, helloMessageFlag: boolean) => ({type: 'GET-REPOSITORIES', repositories, helloMessageFlag} as const)
 export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
 export const setCurrentOrgNameAC = (orgName: string) => ({type: 'SET-CURRENT-ORG-NAME', orgName} as const)
@@ -76,11 +76,11 @@ export const changeHelloMessageFlagAC = (helloMessageFlag: boolean) => ({type: '
 export const changePageIsNoneFoundFlagAC = (pageIsNotFound: boolean) => ({type: 'CHANGE-PAGE-IS-NOT-FOUND-FLAG', pageIsNotFound} as const)
 export const setErrorAC = (error: string) => ({type: 'SET-ERROR', error} as const)
 
-export const getRepositoriesActionSaga = (orgName: string, currentPage: number, repositoriesPerPage: number) => ({type: "REPO/GET-REPO", orgName, currentPage, repositoriesPerPage})
-export const setTotalRepositoriesCountActionSaga = (orgName: string) => ({type: "REPO/SET-TOTAL-REPO-COUNT", orgName})
+export const getRepositoriesActionCreator = (orgName: string, currentPage: number, repositoriesPerPage: number) => ({type: "REPO/GET-REPO", orgName, currentPage, repositoriesPerPage})
+export const setTotalRepositoriesCountActionCreator = (orgName: string) => ({type: "REPO/SET-TOTAL-REPO-COUNT", orgName})
 
 
-// Types
+// TYPES
 export type InitialStateType = {
     repositories: RepositoryType[] ,
     totalRepositoriesCount: number,
@@ -94,6 +94,8 @@ export type InitialStateType = {
     pageIsNotFound: boolean,
     error: string
 }
+
+// RESPONSE TYPES
 export type OwnerRepositoryType = {
     "login": string,
     "id": number,

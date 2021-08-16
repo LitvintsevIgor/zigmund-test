@@ -5,15 +5,15 @@ import {
     changeHelloMessageFlagAC,
     changePageIsNoneFoundFlagAC,
     changeShowPaginatorFlagAC, CompanyInfoType,
-    getRepositoriesActionSaga,
+    getRepositoriesActionCreator,
     RepositoriesType,
     setCurrentOrgNameAC, setErrorAC,
-    setLoadingAC, setRepositoriesAC, setTotalRepositoriesCountAC, setTotalRepositoriesCountActionSaga
+    setLoadingAC, setRepositoriesAC, setTotalRepositoriesCountAC, setTotalRepositoriesCountActionCreator
 } from "./repositoriesReducer";
 
 
-// Sagas
-export function* getRepositoriesWorkerSaga (action: ReturnType<typeof getRepositoriesActionSaga>) {
+// SAGAS
+export function* getRepositoriesWorkerSaga (action: ReturnType<typeof getRepositoriesActionCreator>) {
     try {
         yield put(changePageIsNoneFoundFlagAC(false))
         yield put(setLoadingAC(true))
@@ -37,7 +37,7 @@ export function* getRepositoriesWorkerSaga (action: ReturnType<typeof getReposit
     }
 }
 
-export function* setTotalRepositoriesCountWorkerSaga (action: ReturnType<typeof setTotalRepositoriesCountActionSaga>) {
+export function* setTotalRepositoriesCountWorkerSaga (action: ReturnType<typeof setTotalRepositoriesCountActionCreator>) {
     try {
         const res: AxiosResponse<CompanyInfoType> = yield call(API.getTotalRepositoriesCount, action.orgName)
         yield put(setTotalRepositoriesCountAC(res.data.public_repos))

@@ -1,0 +1,32 @@
+.errorAlert {
+    position: absolute;
+    top: 20px;
+    margin: 0 auto;
+    background-color: #e34c26;
+    min-width: 200px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    animation: alert 1s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.errorAlert img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+@keyframes alert {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
