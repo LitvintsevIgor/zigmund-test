@@ -1,10 +1,22 @@
-# Getting Started with Create React App
+![main1](https://user-images.githubusercontent.com/62355919/129577802-bd1a7494-6cc7-42b7-9d58-dbdfc6ac0667.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SPA для отображения списка репозиториев GitHub
 
-## Available Scripts
+Использовал [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+## Стэк:
+
+* React
+* Redux
+* TypeScript
+* Axios
+* Redux-saga
+
+### Описание:
+
+---
+
+С помощью данного приложения вы можете получить список репозиториев интересующей вас компании. Необходимо просто ввести название компании в input, нажать на кнопку или на Enter и список перед вами. Если компания не будет найдена, GitHub "котосьминожка" предупредит вас об этом))
 
 ### `yarn start`
 
