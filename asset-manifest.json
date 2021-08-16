@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/zigmund-test/static/css/main.e4a5e80e.chunk.css",
-    "main.js": "/zigmund-test/static/js/main.0574ae12.chunk.js",
-    "main.js.map": "/zigmund-test/static/js/main.0574ae12.chunk.js.map",
+    "main.css": "/zigmund-test/static/css/main.4ca3a888.chunk.css",
+    "main.js": "/zigmund-test/static/js/main.e3f330c8.chunk.js",
+    "main.js.map": "/zigmund-test/static/js/main.e3f330c8.chunk.js.map",
     "runtime-main.js": "/zigmund-test/static/js/runtime-main.e95c978b.js",
     "runtime-main.js.map": "/zigmund-test/static/js/runtime-main.e95c978b.js.map",
     "static/js/2.fad698a1.chunk.js": "/zigmund-test/static/js/2.fad698a1.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.8ead6c30.chunk.js": "/zigmund-test/static/js/3.8ead6c30.chunk.js",
     "static/js/3.8ead6c30.chunk.js.map": "/zigmund-test/static/js/3.8ead6c30.chunk.js.map",
     "index.html": "/zigmund-test/index.html",
-    "static/css/main.e4a5e80e.chunk.css.map": "/zigmund-test/static/css/main.e4a5e80e.chunk.css.map",
+    "static/css/main.4ca3a888.chunk.css.map": "/zigmund-test/static/css/main.4ca3a888.chunk.css.map",
     "static/js/2.fad698a1.chunk.js.LICENSE.txt": "/zigmund-test/static/js/2.fad698a1.chunk.js.LICENSE.txt",
     "static/media/git_fork_icon.248856b9.svg": "/zigmund-test/static/media/git_fork_icon.248856b9.svg",
     "static/media/github-logo.432be498.svg": "/zigmund-test/static/media/github-logo.432be498.svg",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.e95c978b.js",
     "static/js/2.fad698a1.chunk.js",
-    "static/css/main.e4a5e80e.chunk.css",
-    "static/js/main.0574ae12.chunk.js"
+    "static/css/main.4ca3a888.chunk.css",
+    "static/js/main.e3f330c8.chunk.js"
   ]
 }
