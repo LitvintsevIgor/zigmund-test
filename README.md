@@ -1,10 +1,10 @@
 ![main1](https://user-images.githubusercontent.com/62355919/129577802-bd1a7494-6cc7-42b7-9d58-dbdfc6ac0667.png)
 
-# SPA для отображения списка репозиториев GitHub
+# SPA for displaying GitHub repositories
 
-Использовал [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Стэк:
+## Stack:
 
 * React
 * Redux
@@ -12,47 +12,13 @@
 * Axios
 * Redux-saga
 
-### Описание:
+## Description:
 
----
+With this application you can get a list of the repositories of the company you are interested in. You just need to enter the name of the company in the input, click on the button or on Enter and the list is in front of you. In each card you will see the name of the repository, URL, number of forks, watchers, stargazers. Clicking on the title or link will take you to the GitHub repository itself.
 
-С помощью данного приложения вы можете получить список репозиториев интересующей вас компании. Необходимо просто ввести название компании в input, нажать на кнопку или на Enter и список перед вами. Если компания не будет найдена, GitHub "котосьминожка" предупредит вас об этом))
+![test](https://github.com/LitvintsevIgor/ForReadMe/blob/main/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-08-16%20%D0%B2%2019.45.12.gif)
 
-### `yarn start`
+If the company will not found, GitHub "cat-octopus" will warn you about it :)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/62355919/129601541-6a3a287f-a228-48d0-a970-7a4ca14e55ec.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
