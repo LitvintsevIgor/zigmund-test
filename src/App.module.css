@@ -1,0 +1,141 @@
+/*FONTS*/
+@font-face {
+    font-family: 'MontserratThin';
+    src: url('common/fonts/montserrat-thin-webfont.eot');
+    src: local('0'), url('common/fonts/montserrat-thin-webfont.eot?#iefix') format('embedded-opentype'),
+    url('common/fonts/montserrat-thin-webfont.woff2') format('woff2'),
+    url('common/fonts/montserrat-thin-webfont.woff') format('woff'),
+    url('common/fonts/montserrat-thin-webfont.svg#montserratthin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratLight';
+    src: url('common/fonts/montserrat-light-webfont.eot');
+    src: local('0'), url('common/fonts/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('common/fonts/montserrat-light-webfont.woff2') format('woff2'),
+    url('common/fonts/montserrat-light-webfont.woff') format('woff'),
+    url('common/fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('common/fonts/montserrat-medium-webfont.eot');
+    src: local('0'), url('common/fonts/montserrat-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('common/fonts/montserrat-medium-webfont.woff2') format('woff2'),
+    url('common/fonts/montserrat-medium-webfont.woff') format('woff'),
+    url('common/fonts/montserrat-medium-webfont.svg#montserratmedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('common/fonts/montserrat-bold-webfont.eot');
+    src: local('0'), url('common/fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('common/fonts/montserrat-bold-webfont.woff2') format('woff2'),
+    url('common/fonts/montserrat-bold-webfont.woff') format('woff'),
+    url('common/fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+* {
+    font-family: MontserratLight, serif;
+    box-sizing: border-box;
+    color: #c9d1d9;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #161b22;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-family: MontserratLight, serif;
+}
+
+.repoCardsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 1000px;
+    min-height: 430px;
+}
+
+.loadingWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(000, 000, 000, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    width: 50px;
+    height: 50px;
+}
+
+
+.errorAlert {
+    position: absolute;
+    top: 20px;
+    margin: 0 auto;
+    background-color: #e34c26;
+    min-width: 200px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    animation: popUp 1s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.errorAlert img {
+    width: 20px;
+    height: 20px;
+}
+
+.notFound {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 430px;
+
+    width: 530px;
+    margin: 0 auto;
+
+}
+
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+
+
+

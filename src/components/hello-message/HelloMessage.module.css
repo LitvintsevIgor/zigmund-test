@@ -1,0 +1,17 @@
+.helloMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.helloMessage p {
+    max-width: 600px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.helloMessage img {
+    width: 250px;
+}
