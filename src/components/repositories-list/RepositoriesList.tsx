@@ -7,7 +7,8 @@ type RepositoriesListPropsType = {
     repositories: RepositoriesType
 }
 
-export const RepositoriesList: React.FC<RepositoriesListPropsType> = ({repositories}) => {
+export const RepositoriesList = React.memo(function ({repositories}: RepositoriesListPropsType) {
+    console.log("RepositoriesList отрисовалась")
     return (
         <div className={style.repositoriesListWrapper}>
             {
@@ -26,4 +27,4 @@ export const RepositoriesList: React.FC<RepositoriesListPropsType> = ({repositor
             }
         </div>
     )
-}
+})

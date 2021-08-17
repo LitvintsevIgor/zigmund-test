@@ -7,18 +7,19 @@ export type HeaderPropsType = {
     getRepositoriesCallback: (orgName: string) => void
 }
 
-export const Header: React.FC<HeaderPropsType> = ({onChangeHandler, orgName, getRepositoriesCallback}) => {
-    return (
-        <header>
-            <h1>Please, enter a company name</h1>
-            <div className={style.searchForm}>
-                <input type="text" onChange={onChangeHandler} value={orgName} onKeyPress={e => {
-                    e.key === 'Enter' && getRepositoriesCallback(orgName)
-                }}/>
-                <div>
-                    <button onClick={() => getRepositoriesCallback(orgName)}>GET GITHUB REPOSITORIES</button>
+export const Header = React.memo(function ({onChangeHandler, orgName, getRepositoriesCallback}: HeaderPropsType) {
+        return (
+            <header>
+                <h1>Please, enter a company name</h1>
+                <div className={style.searchForm}>
+                    <input type="text" onChange={onChangeHandler} value={orgName} onKeyPress={e => {
+                        e.key === 'Enter' && getRepositoriesCallback(orgName)
+                    }}/>
+                    <div>
+                        <button onClick={() => getRepositoriesCallback(orgName)}>GET GITHUB REPOSITORIES</button>
+                    </div>
                 </div>
-            </div>
-        </header>
-    )
-}
+            </header>
+        )
+    }
+)

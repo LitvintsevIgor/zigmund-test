@@ -14,25 +14,28 @@ export type RepositoryCardPropsType = {
     stargazersCount: number
 }
 
-export const RepositoryCard:React.FC<RepositoryCardPropsType> = ({
-                                                                     name,
-                                                                     description,
-                                                                     url,
-                                                                     forksCount,
-                                                                     watchers,
-                                                                     stargazersCount}) => {
-    return (
-        <div className={style.repoCard}>
-            <a href={url}><h2>{name}</h2></a>
-            <p>{description}</p>
-            <p className={style.urlPoint}>
-                <span>URL:</span> <a href={url}>{url}</a>
-            </p>
-            <div className={style.gitDataItems}>
-                <RepositoryCardItem item={"forks"} count={forksCount} logo={forkLogo}/>
-                <RepositoryCardItem item={"watchers"} count={watchers} logo={watchersLogo}/>
-                <RepositoryCardItem item={"stargazers"} count={stargazersCount} logo={starLogo}/>
+export const RepositoryCard = React.memo(function ({
+                                                       name,
+                                                       description,
+                                                       url,
+                                                       forksCount,
+                                                       watchers,
+                                                       stargazersCount
+                                                   }: RepositoryCardPropsType) {
+        return (
+            <div className={style.repoCard}>
+                <a href={url}><h2>{name}</h2></a>
+                <p>{description}</p>
+                <p className={style.urlPoint}>
+                    <span>URL:</span> <a href={url}>{url}</a>
+                </p>
+                <div className={style.gitDataItems}>
+                    <RepositoryCardItem item={"forks"} count={forksCount} logo={forkLogo}/>
+                    <RepositoryCardItem item={"watchers"} count={watchers} logo={watchersLogo}/>
+                    <RepositoryCardItem item={"stargazers"} count={stargazersCount} logo={starLogo}/>
+                </div>
             </div>
-        </div>
-    )
-}
+        )
+    }
+)
+

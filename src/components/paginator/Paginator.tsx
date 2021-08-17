@@ -12,13 +12,11 @@ type PaginatorPropsType = {
     currentPage: number;
 }
 
-export const Paginator: React.FC<PaginatorPropsType> = ({getNewRepositoriesPage,
-                                                            currentPage,
-                                                            setPortionNumber,
-                                                            repositoriesPerPage,
-                                                            portionNumber,
-                                                        }) => {
-
+export const Paginator = React.memo( function ({getNewRepositoriesPage,
+                                                  currentPage,
+                                                  setPortionNumber,
+                                                  repositoriesPerPage,
+                                                  portionNumber}: PaginatorPropsType) {
     const totalRepositoriesCount = useSelector<AllAppStateType, number>(state => state.data.totalRepositoriesCount)
     const portionSize = useSelector<AllAppStateType, number>(state => state.data.portionSize)
 
@@ -27,7 +25,6 @@ export const Paginator: React.FC<PaginatorPropsType> = ({getNewRepositoriesPage,
     const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSize)
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
     const rightPortionPageNumber = portionNumber * portionSize
-
 
     const selectedPageStyle = `${style.selectedPage} + ${style.page}`
 
@@ -44,4 +41,4 @@ export const Paginator: React.FC<PaginatorPropsType> = ({getNewRepositoriesPage,
             {portionNumber !== paginatorPortionCount && <button onClick={() => setPortionNumber((prevState) => prevState + 1)}>NEXT</button>}
         </div>
     )
-}
+})

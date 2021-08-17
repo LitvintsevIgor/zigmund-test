@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useCallback, useState} from 'react';
 import './App.module.css';
 import {
     getRepositoriesActionCreator, RepositoriesType,
@@ -15,8 +15,10 @@ import {ErrorAlert} from "../../common/error-alert/ErrorAlert";
 import {Loading} from "../../common/loading/Loading";
 import {RepositoriesList} from "../repositories-list/RepositoriesList";
 import {NotFoundPage} from "../404-page/NotFoundPage";
+import {log} from "util";
 
-export const App = React.memo(() => {
+
+export const App = () => {
 
     // HOOKS
     const [orgName, setOrgName] = useState("")
@@ -78,7 +80,7 @@ export const App = React.memo(() => {
             {error && <ErrorAlert error={error} closeErrorAlertHandler={closeErrorAlertHandler}/>}
 
             {loadingFlag && <Loading/>}
-            {/*<Loading/>*/}
+
             <Header onChangeHandler={onChangeHandler}
                     getRepositoriesCallback={getRepositoriesCallback}
                     orgName={orgName}
@@ -105,7 +107,7 @@ export const App = React.memo(() => {
             }
         </div>
     )
-});
+};
 
 export default App;
 
