@@ -5,6 +5,7 @@
     background-color: rgba(000, 000, 000, 0.7);
     display: flex;
     justify-content: center;
+    z-index: 2;
 }
 
 .loading {

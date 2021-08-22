@@ -1,6 +1,6 @@
 .cardItem {
     display: flex;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-right: 30px;
     align-items: center;
     font-weight: bold;
@@ -14,4 +14,10 @@
 .cardItem span {
     font-weight: bold;
     margin-left: 5px;
+}
+
+@media screen and (max-width: 567px){
+    .cardItem span {
+        display: none;
+    }
 }

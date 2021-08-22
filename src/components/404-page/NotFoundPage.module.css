@@ -9,12 +9,12 @@
 
 .notFound p {
     width: 300px;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .sorryWord {
     font-weight: bold;
-    font-size: 60px;
+    font-size: 3.75rem;
 }
 
 .searchCompany {

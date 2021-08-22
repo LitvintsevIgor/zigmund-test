@@ -23,7 +23,8 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
         case "SET-TOTAL-REPOSITORIES-COUNT":
             return {
                 ...state,
-                totalRepositoriesCount: action.totalRepositoriesCount
+                totalRepositoriesCount: action.totalRepositoriesCount,
+                portionSize: action.portionSize
             }
         case "SET-CURRENT-ORG-NAME":
             return {
@@ -67,7 +68,8 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
 
 // ACTION CREATORS
 export const setRepositoriesAC = (repositories: RepositoriesType, helloMessageFlag: boolean) => ({type: 'GET-REPOSITORIES', repositories, helloMessageFlag} as const)
-export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
+// export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
+export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number, portionSize: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount, portionSize} as const)
 export const setCurrentOrgNameAC = (orgName: string) => ({type: 'SET-CURRENT-ORG-NAME', orgName} as const)
 export const setCurrentPageAC = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)
 export const changeShowPaginatorFlagAC = (showPaginatorFlag: boolean) => ({type: 'CHANGE-SHOW-PAGINATOR-FLAG', showPaginatorFlag} as const)

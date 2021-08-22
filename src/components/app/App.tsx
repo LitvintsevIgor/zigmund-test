@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useCallback, useState} from 'react';
 import './App.module.css';
 import {
-    getRepositoriesActionCreator, RepositoriesType,
+    getRepositoriesActionCreator, InitialStateType, RepositoriesType,
     setCurrentOrgNameAC,
     setCurrentPageAC, setErrorAC, setTotalRepositoriesCountActionCreator,
 } from "../../redux/repositoriesReducer";
@@ -15,24 +15,35 @@ import {ErrorAlert} from "../../common/error-alert/ErrorAlert";
 import {Loading} from "../../common/loading/Loading";
 import {RepositoriesList} from "../repositories-list/RepositoriesList";
 import {NotFoundPage} from "../404-page/NotFoundPage";
-import {log} from "util";
 
 
-export const App = () => {
+export const App = React.memo( () => {
 
     // HOOKS
     const [orgName, setOrgName] = useState("")
     const [portionNumber, setPortionNumber] = useState(1)
-    const repositories = useSelector<AllAppStateType, RepositoriesType>(state => state.data.repositories)
-    const repositoriesPerPage = useSelector<AllAppStateType, number>(state => state.data.repositoriesPerPage)
-    const currentOrgName = useSelector<AllAppStateType, string>(state => state.data.currentOrgName)
-    const currentPage = useSelector<AllAppStateType, number>(state => state.data.currentPage)
+    const {
+        repositories,
+        repositoriesPerPage,
+        currentOrgName,
+        currentPage,
+        showPaginatorFlag,
+        helloMessageFlag,
+        loading,
+        pageIsNotFound,
+        error
+    } = useSelector((state: AllAppStateType) => state.data)
+
+    // const repositories = useSelector<AllAppStateType, RepositoriesType>(state => state.data.repositories)
+    // const repositoriesPerPage = useSelector<AllAppStateType, number>(state => state.data.repositoriesPerPage)
+    // const currentOrgName = useSelector<AllAppStateType, string>(state => state.data.currentOrgName)
+    // const currentPage = useSelector<AllAppStateType, number>(state => state.data.currentPage)
     const [page, setPage] = useState(currentPage)
-    const showPaginatorFlag = useSelector<AllAppStateType, boolean>(state => state.data.showPaginatorFlag)
-    const helloMessageFlag = useSelector<AllAppStateType, boolean>(state => state.data.helloMessageFlag)
-    const loadingFlag = useSelector<AllAppStateType, boolean>(state => state.data.loading)
-    const pageIsNotFound = useSelector<AllAppStateType, boolean>(state => state.data.pageIsNotFound)
-    const error = useSelector<AllAppStateType, string>(state => state.data.error)
+    // const showPaginatorFlag = useSelector<AllAppStateType, boolean>(state => state.data.showPaginatorFlag)
+    // const helloMessageFlag = useSelector<AllAppStateType, boolean>(state => state.data.helloMessageFlag)
+    // const loadingFlag = useSelector<AllAppStateType, boolean>(state => state.data.loading)
+    // const pageIsNotFound = useSelector<AllAppStateType, boolean>(state => state.data.pageIsNotFound)
+    // const error = useSelector<AllAppStateType, string>(state => state.data.error)
     const dispatch = useDispatch();
 
     // HANDLERS AND CALLBACKS
@@ -75,39 +86,41 @@ export const App = () => {
     error && closeErrorAlert()
 
     return (
-        <div className={style.app}>
+        <div className={style.appWrapper}>
 
-            {error && <ErrorAlert error={error} closeErrorAlertHandler={closeErrorAlertHandler}/>}
+            <div className={style.app}>
+                {loading && <Loading/>}
+                {error && <ErrorAlert error={error} closeErrorAlertHandler={closeErrorAlertHandler}/>}
 
-            {loadingFlag && <Loading/>}
+                <Header onChangeHandler={onChangeHandler}
+                        getRepositoriesCallback={getRepositoriesCallback}
+                        orgName={orgName}
+                />
 
-            <Header onChangeHandler={onChangeHandler}
-                    getRepositoriesCallback={getRepositoriesCallback}
-                    orgName={orgName}
-            />
+                {helloMessageFlag
+                    ? <HelloMessage/>
+                    : <>
+                        {(pageIsNotFound || !repositories.length)
+                            ? <NotFoundPage currentOrgName={currentOrgName}/>
+                            : <>
+                                <RepositoriesList repositories={repositories}/>
 
-            {helloMessageFlag
-                ? <HelloMessage/>
-                : <>
-                    {(pageIsNotFound || !repositories.length)
-                        ? <NotFoundPage currentOrgName={currentOrgName}/>
-                        : <>
-                            <RepositoriesList repositories={repositories}/>
+                                {showPaginatorFlag && <Paginator
+                                    portionNumber={portionNumber}
+                                    setPortionNumber={setPortionNumber}
+                                    getNewRepositoriesPage={getNewRepositoriesPage}
+                                    repositoriesPerPage={repositoriesPerPage}
+                                    currentPage={currentPage}
+                                />}
+                            </> }
+                    </>
 
-                            {showPaginatorFlag && <Paginator
-                                portionNumber={portionNumber}
-                                setPortionNumber={setPortionNumber}
-                                getNewRepositoriesPage={getNewRepositoriesPage}
-                                repositoriesPerPage={repositoriesPerPage}
-                                currentPage={currentPage}
-                            />}
-                        </> }
-                </>
-
-            }
+                }
+            </div>
         </div>
+
     )
-};
+})
 
 export default App;
 

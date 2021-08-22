@@ -3,7 +3,8 @@
     border-radius: 6px;
     padding: 10px 20px;
     width: 100%;
-    margin: 10px;
+    margin: 10px auto;
+
 }
 
 .repoCard:hover {

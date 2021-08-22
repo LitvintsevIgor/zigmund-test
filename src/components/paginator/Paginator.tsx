@@ -1,8 +1,9 @@
-import React from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {AllAppStateType} from "../../redux/store";
 import style from "./Paginator.module.css";
 import {getSequentialNumber} from "../../common/helpers/helpers";
+import {setTotalRepositoriesCountAC} from "../../redux/repositoriesReducer";
 
 type PaginatorPropsType = {
     getNewRepositoriesPage: (currentPage: number) => void;
@@ -19,6 +20,7 @@ export const Paginator = React.memo( function ({getNewRepositoriesPage,
                                                   portionNumber}: PaginatorPropsType) {
     const totalRepositoriesCount = useSelector<AllAppStateType, number>(state => state.data.totalRepositoriesCount)
     const portionSize = useSelector<AllAppStateType, number>(state => state.data.portionSize)
+    const dispatch = useDispatch()
 
     const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
     const paginatorPages = getSequentialNumber(paginatorPagesCount)
@@ -27,6 +29,13 @@ export const Paginator = React.memo( function ({getNewRepositoriesPage,
     const rightPortionPageNumber = portionNumber * portionSize
 
     const selectedPageStyle = `${style.selectedPage} + ${style.page}`
+
+    useEffect( () => {
+        debugger
+        if (window.innerWidth < 490) {
+            dispatch(setTotalRepositoriesCountAC(totalRepositoriesCount, 5))
+        }
+    })
 
     return (
         <div className={style.paginator}>

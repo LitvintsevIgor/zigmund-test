@@ -9,13 +9,16 @@ export type HeaderPropsType = {
 
 export const Header = React.memo(function ({onChangeHandler, orgName, getRepositoriesCallback}: HeaderPropsType) {
         return (
-            <header>
+            <header className={style.header}>
                 <h1>Please, enter a company name</h1>
                 <div className={style.searchForm}>
-                    <input type="text" onChange={onChangeHandler} value={orgName} onKeyPress={e => {
-                        e.key === 'Enter' && getRepositoriesCallback(orgName)
-                    }}/>
-                    <div>
+                    <div className={style.inputBtnWrapper}>
+                        <input type="text" onChange={onChangeHandler} value={orgName} onKeyPress={e => {
+                            e.key === 'Enter' && getRepositoriesCallback(orgName)
+                        }}/>
+                    </div>
+
+                    <div className={style.inputBtnWrapper}>
                         <button onClick={() => getRepositoriesCallback(orgName)}>GET GITHUB REPOSITORIES</button>
                     </div>
                 </div>
