@@ -40,7 +40,7 @@ export function* getRepositoriesWorkerSaga (action: ReturnType<typeof getReposit
 export function* setTotalRepositoriesCountWorkerSaga (action: ReturnType<typeof setTotalRepositoriesCountActionCreator>) {
     try {
         const res: AxiosResponse<CompanyInfoType> = yield call(API.getTotalRepositoriesCount, action.orgName)
-        yield put(setTotalRepositoriesCountAC(res.data.public_repos, 10))
+        yield put(setTotalRepositoriesCountAC(res.data.public_repos))
     }
     catch (e) {
         if (e.message === "Request failed with status code 404") {

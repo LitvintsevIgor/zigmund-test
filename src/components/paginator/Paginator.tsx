@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AllAppStateType} from "../../redux/store";
 import style from "./Paginator.module.css";
@@ -20,22 +20,32 @@ export const Paginator = React.memo( function ({getNewRepositoriesPage,
                                                   portionNumber}: PaginatorPropsType) {
     const totalRepositoriesCount = useSelector<AllAppStateType, number>(state => state.data.totalRepositoriesCount)
     const portionSize = useSelector<AllAppStateType, number>(state => state.data.portionSize)
-    const dispatch = useDispatch()
+    const [portionSizeLocal, setPortionSizeLocal] = useState<number>(portionSize)
+
+    // const dispatch = useDispatch()
+
+    // const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
+    // const paginatorPages = getSequentialNumber(paginatorPagesCount)
+    // const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSize)
+    // const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
+    // const rightPortionPageNumber = portionNumber * portionSize
 
     const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
     const paginatorPages = getSequentialNumber(paginatorPagesCount)
-    const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSize)
-    const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
-    const rightPortionPageNumber = portionNumber * portionSize
+    const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSizeLocal)
+    const leftPortionPageNumber = (portionNumber - 1) * portionSizeLocal + 1
+    const rightPortionPageNumber = portionNumber * portionSizeLocal
 
     const selectedPageStyle = `${style.selectedPage} + ${style.page}`
 
-    useEffect( () => {
-        debugger
-        if (window.innerWidth < 490) {
-            dispatch(setTotalRepositoriesCountAC(totalRepositoriesCount, 5))
+    const breakpoint = 490;
+
+    useEffect(() => {
+        if (window.innerWidth < breakpoint) {
+            window.addEventListener("resize", () => setPortionSizeLocal(5));
         }
-    })
+    }, []);
+
 
     return (
         <div className={style.paginator}>

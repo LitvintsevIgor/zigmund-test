@@ -27,7 +27,7 @@ export const RepositoryCard = React.memo(function ({
                 <a href={url}><h2>{name}</h2></a>
                 <p>{description}</p>
                 <p className={style.urlPoint}>
-                    <span>URL:</span> <a href={url}>{url}</a>
+                    <span>URL:</span> <a href={url}>{url.trim()}</a>
                 </p>
                 <div className={style.gitDataItems}>
                     <RepositoryCardItem item={"forks"} count={forksCount} logo={forkLogo}/>
