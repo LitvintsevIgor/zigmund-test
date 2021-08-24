@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/zigmund-test/static/css/main.f450ef53.chunk.css",
-    "main.js": "/zigmund-test/static/js/main.75b67ad6.chunk.js",
-    "main.js.map": "/zigmund-test/static/js/main.75b67ad6.chunk.js.map",
+    "main.js": "/zigmund-test/static/js/main.6edcc122.chunk.js",
+    "main.js.map": "/zigmund-test/static/js/main.6edcc122.chunk.js.map",
     "runtime-main.js": "/zigmund-test/static/js/runtime-main.1adbe6b4.js",
     "runtime-main.js.map": "/zigmund-test/static/js/runtime-main.1adbe6b4.js.map",
     "static/js/2.ad6026cd.chunk.js": "/zigmund-test/static/js/2.ad6026cd.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.1adbe6b4.js",
     "static/js/2.ad6026cd.chunk.js",
     "static/css/main.f450ef53.chunk.css",
-    "static/js/main.75b67ad6.chunk.js"
+    "static/js/main.6edcc122.chunk.js"
   ]
 }
