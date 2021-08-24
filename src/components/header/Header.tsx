@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import style from "./Header.module.css";
+import style from "./Header.module.scss";
 
 export type HeaderPropsType = {
     onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void
@@ -7,7 +7,7 @@ export type HeaderPropsType = {
     getRepositoriesCallback: (orgName: string) => void
 }
 
-export const Header = React.memo(function ({onChangeHandler, orgName, getRepositoriesCallback}: HeaderPropsType) {
+export const Header = React.memo( ({onChangeHandler, orgName, getRepositoriesCallback}: HeaderPropsType) => {
         return (
             <header className={style.header}>
                 <h1>Please, enter a company name</h1>

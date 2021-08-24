@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./RepositoryCard.module.css";
+import style from "./RepositoryCard.module.scss";
 import forkLogo from "../../common/images/git_fork_icon.svg";
 import watchersLogo from "../../common/images/watchers.svg";
 import starLogo from "../../common/images/star.svg";
@@ -14,14 +14,14 @@ export type RepositoryCardPropsType = {
     stargazersCount: number
 }
 
-export const RepositoryCard = React.memo(function ({
+export const RepositoryCard = React.memo( ({
                                                        name,
                                                        description,
                                                        url,
                                                        forksCount,
                                                        watchers,
                                                        stargazersCount
-                                                   }: RepositoryCardPropsType) {
+                                                   }: RepositoryCardPropsType) => {
         return (
             <div className={style.repoCard}>
                 <a href={url}><h2>{name}</h2></a>

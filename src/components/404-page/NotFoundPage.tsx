@@ -1,12 +1,12 @@
 import React from "react";
-import style from "./NotFoundPage.module.css";
+import style from "./NotFoundPage.module.scss";
 import notFound from "../../common/images/404.png";
 
 type NotFoundPagePropsType = {
     currentOrgName: string
 }
 
-export const NotFoundPage = React.memo(function ({currentOrgName}: NotFoundPagePropsType) {
+export const NotFoundPage = React.memo( ({currentOrgName}: NotFoundPagePropsType) => {
         console.log("NotFoundPage rendered")
         return (
             <div className={style.notFound}>

@@ -1,4 +1,4 @@
-import style from "./Loading.module.css";
+import style from "./Loading.module.scss";
 import React from "react";
 import loading from "./../images/loading.svg"
 

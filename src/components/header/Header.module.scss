@@ -1,0 +1,74 @@
+@import "../../common/sass/variables";
+@import "../../common/sass/mixins";
+
+.header {
+    width: 100%;
+    @include centerElement();
+    flex-direction: column;
+    margin: 100px 0 0;
+    @media screen and (max-width: 426px){
+            margin: 50px 0 0;
+    }
+    h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2rem;
+        @media screen and (max-width: 426px){
+                font-size: 1.375rem;
+        }
+        @media screen and (max-width: 376px){
+                font-size: 1.2rem;
+        }
+    }
+    .searchForm {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 70%;
+        min-width: 669px;
+        @media screen and (max-width: 1025px) {
+                width: 92%;
+                min-width: 300px;
+        }
+        @media screen and (max-width: 789px) {
+                justify-content: center;
+        }
+        .inputBtnWrapper {
+            width: 46%;
+            margin: 5px;
+            @media screen and (max-width: 789px) {
+                    width: 35%;
+                    min-width: 321px;
+            }
+            @media screen and (max-width: 376px){
+                    min-width: 300px;
+            }
+            input {
+                display: inline-block;
+                outline: none;
+                background-color: #0d1117;
+                border: 1px solid #21262d;
+                border-radius: 6px;
+                padding: 10px 20px;
+                font-size: 1.25rem;
+                width: 100%;
+                &:focus {
+                    border: 1px solid $LightBlue;
+                }
+            }
+        }
+    }
+    button {
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.25rem;
+        background-color: $LightBlue;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+    }
+}

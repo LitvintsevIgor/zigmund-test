@@ -1,27 +1,26 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
-import './App.module.css';
+import React, {ChangeEvent, useState} from 'react';
+import './App.module.scss';
 import {
-    getRepositoriesActionCreator, InitialStateType, RepositoriesType,
+    getRepositoriesActionCreator,
     setCurrentOrgNameAC,
     setCurrentPageAC, setErrorAC, setTotalRepositoriesCountActionCreator,
 } from "../../redux/repositoriesReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AllAppStateType} from "../../redux/store";
 import {Paginator} from "../paginator/Paginator";
-import style from "./App.module.css"
+import style from "./App.module.scss"
 import {HelloMessage} from "../hello-message/HelloMessage";
 import {Header} from "../header/Header";
 import {ErrorAlert} from "../../common/error-alert/ErrorAlert";
 import {Loading} from "../../common/loading/Loading";
 import {RepositoriesList} from "../repositories-list/RepositoriesList";
 import {NotFoundPage} from "../404-page/NotFoundPage";
+import {Helmet} from "react-helmet";
 
 
 export const App = React.memo( () => {
 
     // HOOKS
-    const [orgName, setOrgName] = useState("")
-    const [portionNumber, setPortionNumber] = useState(1)
     const {
         repositories,
         repositoriesPerPage,
@@ -33,17 +32,9 @@ export const App = React.memo( () => {
         pageIsNotFound,
         error
     } = useSelector((state: AllAppStateType) => state.data)
-
-    // const repositories = useSelector<AllAppStateType, RepositoriesType>(state => state.data.repositories)
-    // const repositoriesPerPage = useSelector<AllAppStateType, number>(state => state.data.repositoriesPerPage)
-    // const currentOrgName = useSelector<AllAppStateType, string>(state => state.data.currentOrgName)
-    // const currentPage = useSelector<AllAppStateType, number>(state => state.data.currentPage)
+    const [orgName, setOrgName] = useState("")
+    const [portionNumber, setPortionNumber] = useState(1)
     const [page, setPage] = useState(currentPage)
-    // const showPaginatorFlag = useSelector<AllAppStateType, boolean>(state => state.data.showPaginatorFlag)
-    // const helloMessageFlag = useSelector<AllAppStateType, boolean>(state => state.data.helloMessageFlag)
-    // const loadingFlag = useSelector<AllAppStateType, boolean>(state => state.data.loading)
-    // const pageIsNotFound = useSelector<AllAppStateType, boolean>(state => state.data.pageIsNotFound)
-    // const error = useSelector<AllAppStateType, string>(state => state.data.error)
     const dispatch = useDispatch();
 
     // HANDLERS AND CALLBACKS
@@ -87,6 +78,12 @@ export const App = React.memo( () => {
 
     return (
         <div className={style.appWrapper}>
+            <Helmet>
+                <title>Find a repository</title>
+                <meta name='viewport' content='initial-scale=1, viewport-fit=cover'/>
+            </Helmet>
+
+
 
             <div className={style.app}>
                 {loading && <Loading/>}
@@ -114,7 +111,6 @@ export const App = React.memo( () => {
                                 />}
                             </> }
                     </>
-
                 }
             </div>
         </div>

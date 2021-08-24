@@ -67,7 +67,6 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
 
 // ACTION CREATORS
 export const setRepositoriesAC = (repositories: RepositoriesType, helloMessageFlag: boolean) => ({type: 'GET-REPOSITORIES', repositories, helloMessageFlag} as const)
-// export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
 export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
 export const setCurrentOrgNameAC = (orgName: string) => ({type: 'SET-CURRENT-ORG-NAME', orgName} as const)
 export const setCurrentPageAC = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)

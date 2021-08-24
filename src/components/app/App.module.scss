@@ -40,11 +40,12 @@
     font-style: normal;
 
 }
+@import "../../common/sass/variables";
 
 * {
     font-family: MontserratLight, serif;
     box-sizing: border-box;
-    color: #c9d1d9;
+    color: $lightTextColor;
     margin: 0;
     font-size: 16px;
 }
@@ -54,17 +55,16 @@ a {
 }
 
 .appWrapper {
-    background-color: #161b22;
+    background-color: $BgColor;
     position: relative;
-}
-
-.app {
-    max-width: 1240px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0 15px;
+    .app {
+        max-width: 1240px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
 }

@@ -1,0 +1,47 @@
+@import "../../common/sass/variables";
+
+.repoCard {
+  border: 1px solid $LightBlue;
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: 100%;
+  margin: 10px auto;
+
+  &:hover {
+    border: 1px solid #7cb0f6;
+  }
+
+  h2 {
+    color: $LightBlue;
+    font-weight: 900;
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .urlPoint {
+    display: flex;
+    margin-bottom: 10px;
+
+    a {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 95%;
+      margin-left: 5px;
+
+      span {
+        color: $LightBlue;
+      }
+    }
+  }
+
+  .gitDataItems {
+    display: flex;
+  }
+}

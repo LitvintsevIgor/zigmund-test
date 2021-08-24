@@ -1,4 +1,4 @@
-import style from "./HelloMessage.module.css";
+import style from "./HelloMessage.module.scss";
 import githubLogo from "../../common/images/github-logo.svg";
 import React from "react";
 

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AllAppStateType} from "../../redux/store";
-import style from "./Paginator.module.css";
+import style from "./Paginator.module.scss";
 import {getSequentialNumber} from "../../common/helpers/helpers";
-import {setTotalRepositoriesCountAC} from "../../redux/repositoriesReducer";
+
 
 type PaginatorPropsType = {
     getNewRepositoriesPage: (currentPage: number) => void;
@@ -13,22 +13,14 @@ type PaginatorPropsType = {
     currentPage: number;
 }
 
-export const Paginator = React.memo( function ({getNewRepositoriesPage,
+export const Paginator = React.memo(({getNewRepositoriesPage,
                                                   currentPage,
                                                   setPortionNumber,
                                                   repositoriesPerPage,
-                                                  portionNumber}: PaginatorPropsType) {
-    const totalRepositoriesCount = useSelector<AllAppStateType, number>(state => state.data.totalRepositoriesCount)
-    const portionSize = useSelector<AllAppStateType, number>(state => state.data.portionSize)
+                                                  portionNumber}: PaginatorPropsType) => {
+
+    const {totalRepositoriesCount, portionSize} = useSelector ((state: AllAppStateType) => state.data)
     const [portionSizeLocal, setPortionSizeLocal] = useState<number>(portionSize)
-
-    // const dispatch = useDispatch()
-
-    // const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
-    // const paginatorPages = getSequentialNumber(paginatorPagesCount)
-    // const paginatorPortionCount = Math.ceil(paginatorPagesCount / portionSize)
-    // const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
-    // const rightPortionPageNumber = portionNumber * portionSize
 
     const paginatorPagesCount = Math.ceil(totalRepositoriesCount / repositoriesPerPage)
     const paginatorPages = getSequentialNumber(paginatorPagesCount)
@@ -40,12 +32,18 @@ export const Paginator = React.memo( function ({getNewRepositoriesPage,
 
     const breakpoint = 490;
 
-    useEffect(() => {
+    const changePortionSize = () => {
         if (window.innerWidth < breakpoint) {
-            window.addEventListener("resize", () => setPortionSizeLocal(5));
+            setPortionSizeLocal(5)
+        } else {
+            setPortionSizeLocal(10)
         }
-    }, []);
+    }
 
+    useEffect(() => {
+            window.addEventListener("resize", () => changePortionSize());
+            return () => window.addEventListener("resize", () => changePortionSize());
+    }, []);
 
     return (
         <div className={style.paginator}>

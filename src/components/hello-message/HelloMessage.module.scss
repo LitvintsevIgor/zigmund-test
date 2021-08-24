@@ -1,0 +1,24 @@
+@import "../../common/sass/mixins";
+
+.helloMessage {
+    @include centerElement();
+    flex-direction: column;
+    margin: 50px 0 100px;
+    @media screen and (max-width: 426px) {
+            margin: 50px 0 50px;
+    }
+    img {
+        width: 250px;
+        @media screen and (max-width: 426px) {
+                width: 170px;
+        }
+    }
+    p {
+        max-width: 600px;
+        font-size: 1.85rem;
+        text-align: center;
+        @media screen and (max-width: 426px) {
+                font-size: 1.375rem;
+        }
+    }
+}

@@ -1,8 +1,10 @@
+@import "../sass/variables";
+
 .errorAlert {
     position: absolute;
     top: 20px;
     margin: 0 auto;
-    background-color: #e34c26;
+    background-color: $ErrorColor;
     min-width: 200px;
     border-radius: 6px;
     padding: 5px 10px;
@@ -12,11 +14,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.errorAlert img {
-    width: 20px;
-    margin-left: 10px;
+    img {
+        width: 20px;
+        margin-left: 10px;
+    }
 }
 
 @keyframes alert {

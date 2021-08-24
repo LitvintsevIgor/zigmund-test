@@ -1,0 +1,36 @@
+@import "../../common/sass/variables";
+@import "../../common/sass/mixins";
+
+.paginator {
+    margin: 20px 0 100px;
+    display: flex;
+    button {
+        background-color: #1f6feb;
+        border-radius: 0 6px 6px 0;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .prevButton {
+        border-radius: 6px 0 0 6px;
+    }
+    .selectedPage {
+        font-weight: bold;
+        background-color: $LightBlue;
+    }
+    .page {
+        @include centerElement();
+        padding: 3px 5px;
+        border: 1px solid gray;
+        width: 40px;
+        height: 40px;
+        flex-direction: row;
+
+        cursor: pointer;
+        &:hover {
+            background-color: #4a8aef;
+        }
+    }
+}
+
