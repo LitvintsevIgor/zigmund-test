@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/zigmund-test/static/css/main.f450ef53.chunk.css",
-    "main.js": "/zigmund-test/static/js/main.b5166a09.chunk.js",
-    "main.js.map": "/zigmund-test/static/js/main.b5166a09.chunk.js.map",
-    "runtime-main.js": "/zigmund-test/static/js/runtime-main.e95c978b.js",
-    "runtime-main.js.map": "/zigmund-test/static/js/runtime-main.e95c978b.js.map",
-    "static/js/2.2bd3c909.chunk.js": "/zigmund-test/static/js/2.2bd3c909.chunk.js",
-    "static/js/2.2bd3c909.chunk.js.map": "/zigmund-test/static/js/2.2bd3c909.chunk.js.map",
-    "static/js/3.8ead6c30.chunk.js": "/zigmund-test/static/js/3.8ead6c30.chunk.js",
-    "static/js/3.8ead6c30.chunk.js.map": "/zigmund-test/static/js/3.8ead6c30.chunk.js.map",
+    "main.js": "/zigmund-test/static/js/main.75b67ad6.chunk.js",
+    "main.js.map": "/zigmund-test/static/js/main.75b67ad6.chunk.js.map",
+    "runtime-main.js": "/zigmund-test/static/js/runtime-main.1adbe6b4.js",
+    "runtime-main.js.map": "/zigmund-test/static/js/runtime-main.1adbe6b4.js.map",
+    "static/js/2.ad6026cd.chunk.js": "/zigmund-test/static/js/2.ad6026cd.chunk.js",
+    "static/js/2.ad6026cd.chunk.js.map": "/zigmund-test/static/js/2.ad6026cd.chunk.js.map",
+    "static/js/3.4258bccb.chunk.js": "/zigmund-test/static/js/3.4258bccb.chunk.js",
+    "static/js/3.4258bccb.chunk.js.map": "/zigmund-test/static/js/3.4258bccb.chunk.js.map",
     "index.html": "/zigmund-test/index.html",
     "static/css/main.f450ef53.chunk.css.map": "/zigmund-test/static/css/main.f450ef53.chunk.css.map",
-    "static/js/2.2bd3c909.chunk.js.LICENSE.txt": "/zigmund-test/static/js/2.2bd3c909.chunk.js.LICENSE.txt",
+    "static/js/2.ad6026cd.chunk.js.LICENSE.txt": "/zigmund-test/static/js/2.ad6026cd.chunk.js.LICENSE.txt",
     "static/media/git_fork_icon.248856b9.svg": "/zigmund-test/static/media/git_fork_icon.248856b9.svg",
     "static/media/github-logo.432be498.svg": "/zigmund-test/static/media/github-logo.432be498.svg",
     "static/media/loading.de76ced5.svg": "/zigmund-test/static/media/loading.de76ced5.svg",
@@ -20,9 +20,9 @@
     "static/media/watchers.f1ec62ae.svg": "/zigmund-test/static/media/watchers.f1ec62ae.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e95c978b.js",
-    "static/js/2.2bd3c909.chunk.js",
+    "static/js/runtime-main.1adbe6b4.js",
+    "static/js/2.ad6026cd.chunk.js",
     "static/css/main.f450ef53.chunk.css",
-    "static/js/main.b5166a09.chunk.js"
+    "static/js/main.75b67ad6.chunk.js"
   ]
 }
