@@ -18,7 +18,11 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
             return {
                 ...state,
                 repositories: action.repositories,
-                helloMessageFlag: action.helloMessageFlag
+                helloMessageFlag: action.helloMessageFlag,
+                loading: action.loadingFlag,
+                showPaginatorFlag: action.showPaginatorFlag,
+                currentOrgName: action.orgName,
+                error: action.error
             }
         case "SET-TOTAL-REPOSITORIES-COUNT":
             return {
@@ -35,30 +39,19 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
                 ...state,
                 currentPage: action.currentPage
             }
-        case "CHANGE-SHOW-PAGINATOR-FLAG":
-            return {
-                ...state,
-                showPaginatorFlag: action.showPaginatorFlag
-            }
-        case "SET-LOADING":
-            return {
-                ...state,
-                loading: action.loadingFlag
-            }
         case "CHANGE-PAGE-IS-NOT-FOUND-FLAG":
             return {
                 ...state,
-                pageIsNotFound: action.pageIsNotFound
-            }
-        case "CHANGE-HELLO_MESSAGE-FLAG":
-            return {
-                ...state,
+                pageIsNotFound: action.pageIsNotFound,
+                loading: action.loadingFlag,
+                showPaginatorFlag: action.showPaginatorFlag,
                 helloMessageFlag: action.helloMessageFlag
             }
         case "SET-ERROR":
             return {
                 ...state,
-                error: action.error
+                error: action.error,
+                loading: action.loadingFlag
             }
     }
     return state
@@ -66,15 +59,12 @@ export const repositoriesReducer = (state: InitialStateType = initialState, acti
 
 
 // ACTION CREATORS
-export const setRepositoriesAC = (repositories: RepositoriesType, helloMessageFlag: boolean) => ({type: 'GET-REPOSITORIES', repositories, helloMessageFlag} as const)
+export const setRepositoriesAC = (repositories: RepositoriesType, helloMessageFlag: boolean, loadingFlag: boolean, showPaginatorFlag: boolean, orgName: string, error: string) => ({type: 'GET-REPOSITORIES', repositories, helloMessageFlag, loadingFlag, showPaginatorFlag, orgName, error} as const)
 export const setTotalRepositoriesCountAC = (totalRepositoriesCount: number) => ({type: 'SET-TOTAL-REPOSITORIES-COUNT', totalRepositoriesCount} as const)
 export const setCurrentOrgNameAC = (orgName: string) => ({type: 'SET-CURRENT-ORG-NAME', orgName} as const)
 export const setCurrentPageAC = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)
-export const changeShowPaginatorFlagAC = (showPaginatorFlag: boolean) => ({type: 'CHANGE-SHOW-PAGINATOR-FLAG', showPaginatorFlag} as const)
-export const setLoadingAC = (loadingFlag: boolean) => ({type: 'SET-LOADING', loadingFlag} as const)
-export const changeHelloMessageFlagAC = (helloMessageFlag: boolean) => ({type: 'CHANGE-HELLO_MESSAGE-FLAG', helloMessageFlag} as const)
-export const changePageIsNoneFoundFlagAC = (pageIsNotFound: boolean) => ({type: 'CHANGE-PAGE-IS-NOT-FOUND-FLAG', pageIsNotFound} as const)
-export const setErrorAC = (error: string) => ({type: 'SET-ERROR', error} as const)
+export const changePageIsNoneFoundFlagAC = (pageIsNotFound: boolean, loadingFlag: boolean, showPaginatorFlag: boolean | null, helloMessageFlag: boolean | null) => ({type: 'CHANGE-PAGE-IS-NOT-FOUND-FLAG', pageIsNotFound, loadingFlag, showPaginatorFlag, helloMessageFlag} as const)
+export const setErrorAC = (error: string, loadingFlag: boolean) => ({type: 'SET-ERROR', error, loadingFlag} as const)
 
 export const getRepositoriesActionCreator = (orgName: string, currentPage: number, repositoriesPerPage: number) => ({type: "REPO/GET-REPO", orgName, currentPage, repositoriesPerPage})
 export const setTotalRepositoriesCountActionCreator = (orgName: string) => ({type: "REPO/SET-TOTAL-REPO-COUNT", orgName})
@@ -88,9 +78,9 @@ export type InitialStateType = {
     portionSize: number,
     currentPage: number,
     currentOrgName: string,
-    showPaginatorFlag: boolean,
+    showPaginatorFlag: boolean | null,
     loading: boolean,
-    helloMessageFlag:boolean,
+    helloMessageFlag:boolean | null,
     pageIsNotFound: boolean,
     error: string
 }
@@ -242,8 +232,5 @@ type ActionsType = ReturnType<typeof setRepositoriesAC>
     | ReturnType<typeof setTotalRepositoriesCountAC>
     | ReturnType<typeof setCurrentOrgNameAC>
     | ReturnType<typeof setCurrentPageAC>
-    | ReturnType<typeof changeShowPaginatorFlagAC>
-    | ReturnType<typeof setLoadingAC>
     | ReturnType<typeof changePageIsNoneFoundFlagAC>
-    | ReturnType<typeof changeHelloMessageFlagAC>
     | ReturnType<typeof setErrorAC>

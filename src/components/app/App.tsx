@@ -45,7 +45,7 @@ export const App = React.memo( () => {
 
     const getRepositoriesCallback = (orgName: string) => {
         if (!orgName) {
-            dispatch(setErrorAC("Company name required"))
+            dispatch(setErrorAC("Company name required", false))
         } else {
             setPortionNumber(1)
             dispatch(setCurrentPageAC(1))
@@ -66,12 +66,12 @@ export const App = React.memo( () => {
 
     const closeErrorAlert = () => {
         setTimeout(() => {
-            dispatch(setErrorAC(""))
+            dispatch(setErrorAC("", false))
         }, 4000)
     }
 
     const closeErrorAlertHandler = () => {
-        dispatch(setErrorAC(""))
+        dispatch(setErrorAC("", false))
     }
 
     error && closeErrorAlert()
@@ -97,7 +97,7 @@ export const App = React.memo( () => {
                 {helloMessageFlag
                     ? <HelloMessage/>
                     : <>
-                        {(pageIsNotFound || !repositories.length)
+                        {pageIsNotFound
                             ? <NotFoundPage currentOrgName={currentOrgName}/>
                             : <>
                                 <RepositoriesList repositories={repositories}/>

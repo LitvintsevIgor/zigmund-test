@@ -2,37 +2,26 @@ import {call, put, takeEvery} from "redux-saga/effects";
 import {AxiosResponse} from "axios";
 import {API} from "../api/api";
 import {
-    changeHelloMessageFlagAC,
     changePageIsNoneFoundFlagAC,
-    changeShowPaginatorFlagAC, CompanyInfoType,
+    CompanyInfoType,
     getRepositoriesActionCreator,
-    RepositoriesType,
-    setCurrentOrgNameAC, setErrorAC,
-    setLoadingAC, setRepositoriesAC, setTotalRepositoriesCountAC, setTotalRepositoriesCountActionCreator
+    RepositoriesType, setErrorAC,
+    setRepositoriesAC, setTotalRepositoriesCountAC, setTotalRepositoriesCountActionCreator
 } from "./repositoriesReducer";
 
 
 // SAGAS
 export function* getRepositoriesWorkerSaga (action: ReturnType<typeof getRepositoriesActionCreator>) {
     try {
-        yield put(changePageIsNoneFoundFlagAC(false))
-        yield put(setLoadingAC(true))
+        yield put(changePageIsNoneFoundFlagAC(false, true, null, null))
         const repositories: AxiosResponse<RepositoriesType> = yield call( API.getRepositories, action.orgName, action.currentPage, action.repositoriesPerPage)
-        yield put(setLoadingAC(false))
-        yield put(changeShowPaginatorFlagAC(true))
-        yield put(setCurrentOrgNameAC(action.orgName))
-        yield put(setRepositoriesAC(repositories.data, false))
-        yield put(setErrorAC(""))
+        yield put(setRepositoriesAC(repositories.data, false, false, true, action.orgName, ""))
     }
     catch (e) {
         if (e.message === "Request failed with status code 404") {
-            yield put(changeShowPaginatorFlagAC(false))
-            yield put(changeHelloMessageFlagAC(false))
-            yield put(changePageIsNoneFoundFlagAC(true))
-            yield put(setLoadingAC(false))
+            yield put(changePageIsNoneFoundFlagAC(true, false, false, false))
         } else {
-            yield put(setLoadingAC(false))
-            yield put(setErrorAC(e.message))
+            yield put(setErrorAC(e.message, false))
         }
     }
 }
@@ -44,10 +33,7 @@ export function* setTotalRepositoriesCountWorkerSaga (action: ReturnType<typeof 
     }
     catch (e) {
         if (e.message === "Request failed with status code 404") {
-            yield put(changeShowPaginatorFlagAC(false))
-            yield put(changeHelloMessageFlagAC(false))
-            yield put(changePageIsNoneFoundFlagAC(true))
-            yield put(setLoadingAC(false))
+            yield put(changePageIsNoneFoundFlagAC(true, false, false, false))
         }
     }
 
